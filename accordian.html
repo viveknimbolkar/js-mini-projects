@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian</title>
+    <style>
+        .accordian{
+            width: 100%;
+            background-color: rgb(0, 177, 177);
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            height: 10vh;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .accordian:hover{
+            background-color: rgb(1, 235, 235);
+            cursor: pointer;
+        }
+
+        .panel{
+            display: none;
+        }
+
+        p{
+            background-color: rgb(190, 255, 255);
+            margin-top: 0;
+            margin-bottom: 0;
+            color: rgb(48, 48, 48);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="show()" class="accordian">Section 1</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deleniti modi cum accusamus. Ducimus doloribus voluptate tempore, amet iure est culpa ipsa nam fugiat quas praesentium laborum mollitia saepe inventore perferendis laboriosam autem molestias voluptatem. Numquam temporibus dolores nam suscipit non sequi veritatis odit tempore nulla maiores explicabo nisi vero a itaque exercitationem voluptatibus quaerat atque eligendi, aliquam culpa enim. Quia nemo vitae voluptatum ullam maxime odio voluptatibus repudiandae a et! Necessitatibus non itaque eaque expedita nostrum laboriosam eius ipsam. Obcaecati, hic, corrupti numquam, iusto placeat dolores amet odio natus necessitatibus ut consequatur velit. Fugit tempore unde nobis ab eos?</p>
+        </div>
+   
+    <button onclick="show()" class="accordian">Section 2</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deleniti modi cum accusamus. Ducimus doloribus voluptate tempore, amet iure est culpa ipsa nam fugiat quas praesentium laborum mollitia saepe inventore perferendis laboriosam autem molestias voluptatem. Numquam temporibus dolores nam suscipit non sequi veritatis odit tempore nulla maiores explicabo nisi vero a itaque exercitationem voluptatibus quaerat atque eligendi, aliquam culpa enim. Quia nemo vitae voluptatum ullam maxime odio voluptatibus repudiandae a et! Necessitatibus non itaque eaque expedita nostrum laboriosam eius ipsam. Obcaecati, hic, corrupti numquam, iusto placeat dolores amet odio natus necessitatibus ut consequatur velit. Fugit tempore unde nobis ab eos?</p>
+        </div>
+   
+    <button onclick="show()" class="accordian">Section 3</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deleniti modi cum accusamus. Ducimus doloribus voluptate tempore, amet iure est culpa ipsa nam fugiat quas praesentium laborum mollitia saepe inventore perferendis laboriosam autem molestias voluptatem. Numquam temporibus dolores nam suscipit non sequi veritatis odit tempore nulla maiores explicabo nisi vero a itaque exercitationem voluptatibus quaerat atque eligendi, aliquam culpa enim. Quia nemo vitae voluptatum ullam maxime odio voluptatibus repudiandae a et! Necessitatibus non itaque eaque expedita nostrum laboriosam eius ipsam. Obcaecati, hic, corrupti numquam, iusto placeat dolores amet odio natus necessitatibus ut consequatur velit. Fugit tempore unde nobis ab eos?</p>
+        </div>
+  
+    <script>
+
+        function show() {
+            var accordian_btn = document.getElementsByClassName('accordian');
+
+            for(var i = 0; i < accordian_btn.length; i++ ){
+                accordian_btn[i].addEventListener("click",function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    }else{
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

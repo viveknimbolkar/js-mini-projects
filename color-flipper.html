@@ -36,7 +36,7 @@
         #btn:hover{
             transition: .3s;
             background-color: rgb(58, 58, 58);
-            color: white;
+            color: rgb(255, 255, 255);
         }
     </style>
 </head>
@@ -44,7 +44,7 @@
     <center>
     <div id="container">
         <h1>Background Color: </h1>
-        <span id="colorcode">#2sg3s3</span>
+        <span id="colorcode"></span>
     </div>
     <button id="btn" onclick="changeColor()">Change Color</button>
 </center>
@@ -89,6 +89,7 @@
             //get a random number
             let random_num = getRandomNum();
             document.body.style.backgroundColor = color[random_num];
+            document.getElementById('colorcode').innerText = color[random_num];
         }
 
         //create a random number

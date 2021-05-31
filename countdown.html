@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Time Counter</title>
+    <style>
+
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2rem;
+        }
+
+        .counter{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+        }
+
+        .counter div{
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<center>
+    
+    <div class="counter">
+
+        <div class="d">
+            <p id="days">0</p>
+            <span>Days</span>
+        </div>
+
+        <div class="hr">
+            <p id="hours">0</p>
+            <span>Hours</span>
+        </div>
+
+        <div class="min">
+            <p id="minutes">0</p>
+            <span>Minutes</span>
+        </div>
+
+        <div class="sec">
+            <p id="seconds">0</p>
+            <span>Seconds</span>
+        </div>
+    </div>
+</center>
+</body>
+<script>
+
+    var date = new Date("5 Jun 2021");//run upto this date
+    var current_date = new Date();
+
+    const day = document.getElementById('days');
+    const hour = document.getElementById('hours');
+    const minute = document.getElementById('minutes');
+    const second = document.getElementById('seconds');
+
+    function showTime(){
+            
+            const total_seconds = (date - current_date) /1000; //get total milliseconds 
+
+            const total_days = Math.floor(total_seconds/3600/24);
+            const total_hours = Math.floor(total_seconds / 3600) % 24;
+            const total_minutes = Math.floor(total_seconds/60) % 60;
+            const seconds = Math.floor(total_seconds)%60;
+            
+            day.innerText = total_days;
+            minute.innerText = total_minutes;
+            hour.innerText = total_hours;
+            second.innerText = seconds;
+    }
+
+    showTime();
+    setInterval(showTime, 1000);
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
