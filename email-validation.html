@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email validation</title>
+    <style>
+        body{
+            background-color: aliceblue;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .container h1{
+            color: rgb(236, 130, 1);
+        }
+        .container input{
+            outline: none;
+            padding: 15px;
+            margin-top: -10px;
+            width: 300px;
+            font-size: 1.2rem;
+            background-color: aliceblue;
+            border: 2px solid rgb(236, 130, 1);
+            color: rgb(46, 46, 46);
+        }
+        #warning{
+            color: rgb(20, 20, 20);
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+            <h1>Email address:</h1>
+            <input onkeypress="validate()" type="text" placeholder="Enter your email address" id="email">
+            <p id="warning"></p>
+    </div>
+
+    <script>
+
+        function validate(){
+
+            let inp_field = document.getElementById('email');
+            let text = document.getElementById('email').value;
+
+            let warning = document.getElementById('warning');
+
+            let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if (text.match(pattern)) {
+                inp_field.style.borderColor="green";
+                document.getElementById('warning').innerText="Valid Email";
+            }else{
+                inp_field.style.borderColor="red";
+                document.getElementById('warning').innerText="Invalid Email";
+            }
+        }
+    </script>
+</body>
+</html>
