@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Weather Forecast</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+
+        body{
+            background: rgb(76,253,255);
+            background: linear-gradient(0deg, rgba(76,253,255,1) 0%, rgba(255,255,255,1) 100%);
+            height: 100vh;
+        }
+
+        #main-container{
+            box-shadow: 8px 50px 102px -33px rgba(0,0,0,0.55);
+            -webkit-box-shadow: 8px 50px 102px -33px rgba(0,0,0,0.55);
+            -moz-box-shadow: 8px 50px 102px -33px rgba(0,0,0,0.55);
+        }
+
+        #box-1{
+            margin-left: -12px;
+        }
+
+        #box-1 img{
+            width: 100%;
+            height: 100%;
+            opacity: .6;
+        }
+
+        #temperature{
+            position: absolute;
+            top: 63%;
+            left: 15%;
+            font-size: 4rem;
+        }
+
+        #city{
+            position: absolute;
+            top: 66%;
+            left: 35%;
+            font-size: 3rem;
+        }
+
+        #currenttime{
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+     <div class="container d-flex">
+         <div class="col-md-4"></div>
+         <div class="col-md-4">
+            <div class="input-group m-4">
+                <input type="search" id="input-city-name" class="form-control" placeholder="Enter city name">
+                <div class="input-group-append">
+                  <button onclick="showWeather()" class="btn btn-outline-secondary" type="button">&#128269;</button>
+                </div>
+              </div>
+         </div>
+         <div class="col-md-4"></div>
+     </div>
+
+    <div id="main-container" class="container d-flex mt-5">
+        <div class="col-md-8" id="box-1">
+            <img src="images/cc.jpg" alt="weather image" >
+            <div class="container d-flex">
+                <div class="col-md-4" id="temperature">~&#8451;</div>
+                <div class="col-md-4" id="city">loading...</div>
+                <div class="col-md-4" id="currenttime"></div>
+            </div>
+        </div>
+
+        <div class="col-md-4" id="box-2">
+            <div class="other-details p-4" id="box-2-subdiv">
+                <h5>Weather Details</h5><hr>
+                <div class="container d-flex">
+                    <div class="col-md-6">Humidity</div>
+                    <div id="humidity" class="col-md-6 text-center">loading...</div>
+                </div>
+
+                <div class="container d-flex">
+                    <div class="col-md-6">Pressure</div>
+                    <div id="pressure" class="col-md-6 text-center">loading...</div>
+                </div>
+
+                <div class="container d-flex">
+                    <div class="col-md-6">Wind</div>
+                    <div id="wind" class="col-md-6 text-center">loading...</div>
+                </div>
+
+                <div class="container d-flex">
+                    <div class="col-md-6">description</div>
+                    <div id="description" class="col-md-6 text-center">loading...</div>
+                </div>
+                <div class="container d-flex">
+                    <div class="col-md-6">Visibility</div>
+                    <div id="visibility" class="col-md-6 text-center">loading...</div>
+                </div>
+                <br>
+                <h5>Location</h5>
+                <hr>
+                <div class="container d-flex">
+                    <div class="col-md-6">Lattitude</div>
+                    <div id="lattitude" class="col-md-6 text-center">loading...</div>
+                </div>
+                <div class="container d-flex">
+                    <div class="col-md-6">Longititude</div>
+                    <div id="longititude" class="col-md-6 text-center">loading...</div>
+                </div>
+                <div class="container d-flex">
+                    <div class="col-md-6">Feels like</div>
+                    <div id="feels-like" class="col-md-6 text-center">loading...</div>
+                </div>
+                <div class="container d-flex">
+                    <div class="col-md-6">Country</div>
+                    <div id="country" class="col-md-6 text-center">loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+
+        //set current time
+        function currentTime() {
+            var curTime = new Date();
+            document.getElementById("currenttime").innerHTML = curTime.getFullYear()+'&nbsp;&nbsp; '+
+                                                               curTime.getHours()+':'+
+                                                               curTime.getMinutes()+':'+
+                                                               curTime.getSeconds();
+            setTimeout(currentTime,1000);
+        }
+
+        currentTime();
+
+       
+        function showWeather() {
+
+             let displayCityName = document.getElementById("city");
+             let inputCityName   = document.getElementById("input-city-name").value;
+             let humidity        = document.getElementById("humidity");
+             let pressure        = document.getElementById("pressure");
+             let wind            = document.getElementById("wind");
+             let description     = document.getElementById("description");
+             let visibility      = document.getElementById("visibility");
+             let lattitude       = document.getElementById("lattitude");
+             let longititude     = document.getElementById("longititude");
+             let feelsLike       = document.getElementById("feelsLike");
+             let country         = document.getElementById("country");
+             let temperature     = document.getElementById("temperature");
+             let city            = document.getElementById("city");
+
+            //console.log(cityName);
+            fetch("https://api.openweathermap.org/data/2.5/weather?q="+inputCityName+"&appid=d7c33d077a4e70b9e1380b1e9e4a2de7")
+            .then(response => response.json())
+            .then(data => {
+ 
+                console.log(data);
+                const apiResponse = [
+                    data["main"]["temp"],
+                    data["main"]["feels_like"],
+                    data["main"]["humidity"],
+                    data["main"]["pressure"],
+                    data["name"],
+                    data["coord"]["lat"],
+                    data["coord"]["lon"],
+                    data["wind"]["speed"],
+                    data["sys"]["country"],
+                    data["visibility"],
+                    data["weather"]["0"]["description"],
+                    data["weather"]["0"]["main"]
+                ];
+
+                temperature.innerHTML    = (apiResponse[0] -273.15).toFixed(1)+"&#8451;";
+                displayCityName.innerHTML= apiResponse[4];
+                humidity.innerHTML       = apiResponse[2];
+                pressure.innerHTML       = apiResponse[3];
+                lattitude.innerHTML      = apiResponse[5];
+                longititude.innerHTML    = apiResponse[6];
+                wind.innerHTML           = apiResponse[7]+" km/hr";
+                visibility.innerHTML     = apiResponse[9];
+                country.innerHTML        = apiResponse[8];
+                description.innerHTML    = apiResponse[10];
+                feelsLike.innerHTML      = apiResponse[11];
+
+            })
+            // .catch(err => alert("Please enter correct city!"))                    
+        }
+    </script>
+</body>
+</html>

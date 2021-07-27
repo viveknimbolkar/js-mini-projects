@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Converters</title>
+
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class="container d-flex">
+
+        <div class="col-sm-3 shadow rounded bg-primary p-3  text-white m-3" id="boxes">
+            <center><h2>meter&rarr; centimeter</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" oninput="meterToCentimeter(this.value)" onchange="meterToCentimeter(this.value)" class="form-control input-sm"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" id="cm" class="form-control">
+                <button class="btn btn-danger">Copy</button>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3 bg-danger shadow rounded p-3 text-white m-3" id="boxes">
+            <center><h2>kilometer &rarr; meter</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" onchange="kilometerToMeter(this.value)" oninput="kilometerToMeter(this.value)" class="form-control"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" id="m" class="form-control">
+                <button class="btn btn-primary">Copy</button>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3 bg-info shadow rounded p-3 text-white m-3" id="boxes">
+            <center><h2>centimeter &rarr; milimeter</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" onchange="centimeterToMillimeter(this.value)" oninput="centimeterToMillimeter(this.value)" class="form-control"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" id="milimeter" class="form-control">
+                <button class="btn btn-warning">Copy</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container d-flex">
+
+        <div class="col-sm-3 bg-secondary p-3 shadow rounded text-white m-3" id="boxes">
+            <center><h2>Kilogram&rarr; Gram</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" onchange="kilogramToGram(this.value)" oninput="kilogramToGram(this.value)" class="form-control input-sm"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" id="gram" class="form-control">
+                <button class="btn btn-success">Copy</button>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3 bg-dark shadow rounded p-3 text-white m-3" id="boxes">
+            <center><h2>Gram &rarr; milligram</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" onchange="gramToMilligram(this.value)" oninput="gramToMilligram(this.value)" class="form-control"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" class="form-control" id="milligram">
+                <button class="btn btn-secondary">Copy</button>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3 p-3 shadow rounded text-white m-3" style="background-color: #51CB20;" id="boxes">
+            <center><h2>GB &rarr; MB</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" onchange="gbToMb(this.value)" oninput="gbToMb(this.value)" class="form-control"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" class="form-control" id="mb">
+                <button class="btn btn-danger">Copy</button>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <div class="container d-flex">
+
+        <div class="col-sm-3 bg-success p-3  text-white m-3" id="boxes">
+            <center><h2>MB&rarr; KB</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" onchange="mbTokb(this.value)" oninput="mbTokb(this.value)" class="form-control input-sm"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" class="form-control" id="kb">
+                <button class="btn btn-danger">Copy</button>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 p-3 text-white m-3" style="background-color: #2708A0;" id="boxes">
+            <center><h2>Degree Celcius &rarr; Farenhite</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" class="form-control" onchange="degreeToFaranheit(this.value)" oninput="degreeToFaranheit(this.value)"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" class="form-control" id="faranheit">
+                <button class="btn btn-primary">Copy</button>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3 p-3 text-white m-3 currency-converter" style="background-color: #FF4000;" id="boxes">
+            <center><h2>Dollar($) &rarr; Rupee(	&#8377;)</h2></center><br>
+            <label>Enter value in meter:</label>
+            <input type="number" class="form-control"><br><br>
+            <label>Answer:</label>
+            <div class="input-group">
+                <input type="number" class="form-control">
+                <button class="btn btn-warning">Copy</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+       
+        //meter to centimeter
+        function meterToCentimeter(param){
+            document.getElementById("cm").value=param*100;
+        }
+
+        //kilometer to meter
+        function kilometerToMeter(param) {
+            document.getElementById("m").value=param*1000;
+        }
+
+        //centimeter to meter
+        function centimeterToMillimeter(param) {
+            document.getElementById("milimeter").value=param*10;
+        }
+
+        //kilogram to gram
+        function kilogramToGram(param) {
+            document.getElementById("gram").value=param*1000;
+        }
+
+        //gram to milligram
+        function gramToMilligram(param) {
+            document.getElementById("milligram").value=param*1000;
+        }
+
+        //GB TO MB
+        function gbToMb(param) {
+            document.getElementById("mb").value=param*1024;
+        }
+
+        //mb to kb
+        function mbTokb(param) {
+            document.getElementById("kb").value=param*1024;
+        }
+
+        //degree to faranhide
+        function degreeToFaranheit(param) {
+            document.getElementById("faranheit").value=(param*9/5)+32;
+        }
+    </script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
