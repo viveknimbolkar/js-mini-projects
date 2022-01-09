@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonebook</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <style>
+        #phoneBookForm {
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-3">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 bg-dark phonebook border rounded border-success" id="phoneBookForm">
+                <h1 class="d-flex justify-content-center text-white mt-2">
+                    <b>Phonebook</b>
+                </h1>
+              
+                    <div class="row m-2">
+                        <div class="col-md-6 p-2">
+                            <label for="firstname" class="text-white">Firstname</label>
+                            <input type="text" class="form-control" name="firstname" id="firstname" />
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <label for="lastname" class="text-white">Lastname</label>
+                            <input type="text" class="form-control" name="lastname" id="lastname" />
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <label for="mobile" class="text-white">Mobile no.</label><br />
+                            <input type="number" class="form-control " name="mobile" id="mobile" />
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <label for="email" class="text-white">Email address(Optional)</label><br />
+                            <input type="email" class="form-control" name="email" id="email" />
+                        </div>
+
+                        <div class="col-md-6 p-2">
+                            <button class="btn btn-success" onclick="addContact()">Add Contact</button>
+                            <button class="btn btn-danger" onclick="reset()">Reset</button>
+                        </div>
+                    </div>
+               
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var fname = document.getElementById("firstname");
+        var lname = document.getElementById("lastname");
+        var mobile = document.getElementById("mobile");
+        var email = document.getElementById("email");
+       
+        function addContact() {
+            console.log("working");
+            //store data into localStorage
+            localStorage.setItem("firstname",fname.value);
+            localStorage.setItem("lastname",lname.value);
+            localStorage.setItem("mobile",mobile.value);
+            localStorage.setItem("email",email.value);
+        }
+
+        console.log(localStorage.getItem("firstname"));
+
+        function reset(params) {
+            console.log("reset"); 
+        }
+
+    </script>
+</body>
+
+</html>

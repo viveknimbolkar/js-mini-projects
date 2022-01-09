@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <style>
+
+        body,html{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .tablink{
+            width: 25%;
+            background-color: #555;
+            color: white;
+            float: left;
+            font-size: 1.7rem;
+            padding: 14px 14px;
+            border: none;
+        }
+
+        .tablink:hover{
+            background-color: rgb(104, 104, 104);
+        }
+
+        .tabcontent{
+            padding: 100px 20px;
+            color: white;
+            display: none;
+        }
+
+        #Home{
+            background-color: red;
+            display: block;
+        }
+        #News{
+            background-color: violet;
+        }
+        #Contact{
+            background-color: black;
+        }
+        #Help{
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="tablink" id="defaultOpen" onclick="openPage('Home')">
+        Home
+    </button>
+    <button class="tablink" onclick="openPage('News')">
+        News
+    </button>
+    <button class="tablink" onclick="openPage('Contact')">
+        Contact
+    </button>
+    <button class="tablink" onclick="openPage('Help')">Help</button>
+
+    <div class="tabcontent" id="Home">
+        <h2>Welcome to the home</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam nemo
+            molestias consequatur similique, aut architecto labore at fugiat
+            reprehenderit nulla cum maiores tenetur placeat nobis distinctio
+            cupiditate. Ipsam, odit officia!
+        </p>
+    </div>
+    <div class="tabcontent" id="News">
+        <h2>Today News</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            provident laboriosam quasi illo repudiandae, aperiam eos quas
+            reiciendis, odit quo iste vel! Impedit quidem voluptatem dolore ipsa
+            porro aspernatur tempora.
+        </p>
+    </div>
+    <div class="tabcontent" id="Contact">
+        <h2>Your Contacts</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde deserunt
+            impedit, id laboriosam aliquid deleniti dicta vero hic voluptates
+            incidunt eveniet dolores doloremque. Laudantium velit neque eveniet esse
+            eum quas.
+        </p>
+    </div>
+    <div class="tabcontent" id="Help">
+        <h2>Call for help</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus ut
+            cupiditate numquam beatae, quae ab dicta dolores natus doloribus rem
+            provident accusantium voluptas, magnam placeat! Magnam ad odio iste
+            dignissimos?
+        </p>
+    </div>
+
+    <script>
+        function openPage(page) {
+            //Hide all div element by default
+            var i, tabcontent, tablink;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0 ; i < tabcontent.length; i++) {
+                tabcontent[i].style.display="none";
+            }
+
+            document.getElementById(page).style.display="block";
+
+            //get the default tab
+            document.getElementById("Home").click();
+        }
+    </script>
+</body>
+
+</html>
